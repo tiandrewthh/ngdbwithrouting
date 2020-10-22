@@ -13,6 +13,7 @@ import { AddactortomovieComponent } from './addactortomovie/addactortomovie.comp
 import { AddmovieComponent } from './addmovie/addmovie.component';
 import { ListmoviesComponent } from './listmovies/listmovies.component';
 import { DeletemovieComponent } from './deletemovie/deletemovie.component';
+import { ViewnotfoundComponent } from './viewnotfound/viewnotfound.component';
 
 const appRoutes: Routes = [
   { path: "listactors", component: ListactorsComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: "deletemovie", component: DeletemovieComponent },
   { path: "addactortomovie", component: AddactortomovieComponent },
   { path: "", redirectTo: "/listactors", pathMatch: "full" },
+  { path: '**', component: ViewnotfoundComponent },
 ];
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     AddmovieComponent,
     ListmoviesComponent,
     DeletemovieComponent,
+    ViewnotfoundComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -43,6 +46,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
   ],
+  exports: [RouterModule],
   providers: [DatabaseService],
   bootstrap: [AppComponent],
 })
